@@ -3,6 +3,15 @@ name = "persian-tools-cli"
 version = "1.0.0"
 edition = "2021"
 
+description = "cli for rust-persian-tools crate"
+license = "MIT"
+readme = "README.md"
+homepage = "https://crates.io/crates/persian-tools-cli"
+repository = "https://github.com/ali77gh/PersianToolsCli"
+categories = ["localization", "languages", "internationalization", "tools", "command-line-utilities"]
+keywords = ["iran", "persian", "farsi", "tools", "cli"]
+include = ["src/**/*.rs", "Cargo.toml", "LICENSE", "README.md", "example-with-param.png", "example-with-stdin.png"]
+
 [dependencies]
 clap = {version = "4.5.4", features = ["derive"]}
 rust-persian-tools = "1.1.3"
