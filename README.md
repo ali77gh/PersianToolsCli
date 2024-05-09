@@ -3,17 +3,17 @@
 
 Command line interface for [rust-persian-tools](https://github.com/persian-tools/rust-persian-tools) library.
 
-
 ## Example
 
 ### With param
 
 You can pass input by -i option:
-<img src="./example-with-param.png"></img>
+
+<img src="./example-with-param.png" width=600></img>
 
 ### With std-in
 
-<img src="./example-with-stdin.png"></img>
+<img src="./example-with-stdin.png" width=600></img>
 
 ## Help page
 
