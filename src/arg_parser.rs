@@ -15,81 +15,41 @@ pub struct Args {
 
 #[derive(Debug, Subcommand)]
 pub enum Function {
-    /// Adds commas to number,
-    ///
-    /// example: 3100 -> 3,100
-    AddCommas,
-
-    /// Remove commas from number,
-    /// example: 3,100 -> 3100
-    RemoveCommas,
-
-    /// Add persian ordinal suffix to numbers,
-    /// example: "بیست و یک" -< "بیست و یکم"
-    AddOrdinalSuffix,
-
-    /// Remove persian ordinal suffix from numbers,
-    /// example: "بیست و یکم" -< "بیست و یک"
-    RemoveOrdinalSuffix,
-
-    /// Return true if the entered string includes arabic characters
-    HasArabic,
-
-    /// Return true if the entered string does not include other-language characters.
-    IsArabic,
-
-    /// Description: Replaces all instances of ی and ک with  ي and ك,
-    ToArabic,
-
-    /// Gets barcode as input and returns bill type
-    /// types: (Water, Electricity, Gas, Tel, Mobile, Municipality, Tax, DrivingOffense)
-    GetBillType,
-
-    /// Gets barcode as input and returns bill amount in Rials
-    GetBillAmount,
-
     /// "۵۴۱" -> "541"
     DigitsFaToEn,
 
     /// "541" -> "۵۴۱"
     DigitsEnToFa,
 
-    /// "451" -> "٤٥۱"
-    DigitsEnToAr,
+    /// "5677" -> "پنج هزار و ششصد و هفتاد و هفت"
+    NumberToWords,
 
-    /// "٤٥۱" -> "451"
-    DigitsArToEn,
-
-    /// "۴۵۱" -> "٤٥۱"
-    DigitsFaToAr,
-
-    /// "٤٥۱" -> "451"
-    DigitsArToFa,
+    /// حروف فارسی رو به عدد تبدیل میکنه
+    WordsToNumber,
 
     /// Returns list of card numbers extracted from input separated with ','
     ExtractCardNumber,
 
-    /// "البرز" -< "کرج"
-    FindCapitalByProvince,
-
     /// 6219861000000000 -> "بانک سامان"
     GetBankNameByCardNumber,
+
+    /// شماره کارت بانکی رو اعتبار سنجی میکنه
+    VerifyCardNumber,
+
+    /// شماره شبا رو اعتبار سنجی میکنه
+    IsShebaValid,
+
+    /// شماره شبا رو میگیره و اسم بانک بر میگردونه
+    ShebaToBankName,
+
+    /// شماره شبا رو میگیره و اسم فارسی بانک بر میگردونه
+    ShebaToPersianBankName,
 
     /// <national_id> -> "کرج"
     GetCityByIranNationalId,
 
     /// <national_id> -> "البرز"
     GetProvinceByIranNationalId,
-
-    /// Takes input and make it standard in case of using half space
-    AddHalfSpace,
-
-    /// Opposite of add-half-space
-    RemoveHalfSpace,
-
-    /// اعتبار سنجی شناسه حقوقی
-    /// Returns true|false
-    VerifyIranianLegalId,
 
     /// اعتبار سنجی کد ملی
     /// Returns true|false
@@ -107,18 +67,6 @@ pub enum Function {
     /// Returns (دیپلمات - سفارتخانه - تاکسی - ارتش - شخصی و...)
     GetPlateCategory,
 
-    /// "5677" -> "پنج هزار و ششصد و هفتاد و هفت"
-    NumberToWords,
-
-    /// Return true if the entered string includes persian characters
-    HasPersian,
-
-    /// Return true if the entered string does not include other-language characters.
-    IsPersian,
-
-    /// Description: Replaces all instances of ي and ك with ی and ک,
-    ToPersianChars,
-
     /// Phone number as input and returns (false|true)
     IsPhoneValid,
 
@@ -133,24 +81,76 @@ pub enum Function {
     /// 09140000000 -> تبریز
     GetPhoneProvince,
 
-    /// شماره شبا رو اعتبار سنجی میکنه
-    IsShebaValid,
+    /// Adds commas to number,
+    ///
+    /// example: 3100 -> 3,100
+    AddCommas,
 
-    /// شماره شبا رو میگیره و اسم بانک بر میگردونه
-    ShebaToBankName,
+    /// Description: Replaces all instances of ي and ك with ی and ک,
+    ToPersianChars,
 
-    /// شماره شبا رو میگیره و اسم فارسی بانک بر میگردونه
-    ShebaToPersianBankName,
+    /// Return true if the entered string includes persian characters
+    HasPersian,
 
-    ///برای دو لحظه از زمان یک متن فارسی تولید میکنه که اختلاف دو لحظه رو توصیف میکنه
-    TimeDiff,
+    /// Return true if the entered string does not include other-language characters.
+    IsPersian,
+
+    /// اعتبار سنجی شناسه حقوقی
+    /// Returns true|false
+    VerifyIranianLegalId,
+
+    /// "البرز" -< "کرج"
+    FindCapitalByProvince,
+
+    /// Gets barcode as input and returns bill type
+    /// types: (Water, Electricity, Gas, Tel, Mobile, Municipality, Tax, DrivingOffense)
+    GetBillType,
+
+    /// Gets barcode as input and returns bill amount in Rials
+    GetBillAmount,
 
     /// حروف فارسی رو به فرمتی تبدیل میکنه که در url قابل استفاده باشه
     UrlFix,
 
-    /// شماره کارت بانکی رو اعتبار سنجی میکنه
-    VerifyCardNumber,
+    /// Opposite of add-half-space
+    RemoveHalfSpace,
 
-    /// حروف فارسی رو به عدد تبدیل میکنه
-    WordsToNumber,
+    /// Takes input and make it standard in case of using half space
+    AddHalfSpace,
+
+    /// Description: Replaces all instances of ی and ک with  ي and ك,
+    ToArabic,
+
+    /// Return true if the entered string includes arabic characters
+    HasArabic,
+
+    /// Return true if the entered string does not include other-language characters.
+    IsArabic,
+
+    /// "451" -> "٤٥۱"
+    DigitsEnToAr,
+
+    /// "٤٥۱" -> "451"
+    DigitsArToEn,
+
+    /// "۴۵۱" -> "٤٥۱"
+    DigitsFaToAr,
+
+    /// "٤٥۱" -> "451"
+    DigitsArToFa,
+
+    /// Remove commas from number,
+    /// example: 3,100 -> 3100
+    RemoveCommas,
+
+    /// Add persian ordinal suffix to numbers,
+    /// example: "بیست و یک" -< "بیست و یکم"
+    AddOrdinalSuffix,
+
+    /// Remove persian ordinal suffix from numbers,
+    /// example: "بیست و یکم" -< "بیست و یک"
+    RemoveOrdinalSuffix,
+
+    ///برای دو لحظه از زمان یک متن فارسی تولید میکنه که اختلاف دو لحظه رو توصیف میکنه
+    TimeDiff,
 }
