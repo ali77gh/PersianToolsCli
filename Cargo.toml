@@ -8,7 +8,13 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://crates.io/crates/persian-tools-cli"
 repository = "https://github.com/ali77gh/PersianToolsCli"
-categories = ["localization", "languages", "internationalization", "tools", "command-line-utilities"]
+categories = [
+    "localization",
+    "text-processing",
+    "internationalization",
+    "command-line-utilities",
+    "development-tools",
+]
 keywords = ["iran", "persian", "farsi", "tools", "cli"]
 include = ["src/**/*.rs", "Cargo.toml", "LICENSE", "README.md", "example-with-param.png", "example-with-stdin.png"]
 
